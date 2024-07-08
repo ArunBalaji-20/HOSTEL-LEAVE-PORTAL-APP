@@ -32,7 +32,7 @@ This is a simple hostel leave application built using Python Flask and MongoDB. 
 
 ## Docker Image 
 
-1.you can pull the Docker image from Docker Hub :
+1.You can pull the Docker image from Docker Hub :
    ```bash
    docker pull 4run/hostel-leave-portal-app
    ```
