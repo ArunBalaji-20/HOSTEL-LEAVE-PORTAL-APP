@@ -24,8 +24,15 @@ This is a simple hostel leave application built using Python Flask and MongoDB. 
    cd <repository-directory>
    ```
 2.Build and start the Docker containers:
-  ```bash
-  docker-compose up -d --build
-  ```
+   ```bash
+   docker-compose up -d --build
+   ```
 3.Access the application:
   - Open a web browser and go to http://localhost:5000 to manage leave requests.
+
+## Docker Image 
+
+1.you can pull the Docker image from Docker Hub :
+   ```bash
+   docker pull 4run/hostel-leave-portal-app
+   ```
