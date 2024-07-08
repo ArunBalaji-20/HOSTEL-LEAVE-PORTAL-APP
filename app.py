@@ -36,9 +36,10 @@ app.config['JWT_COOKIE_SECURE']=True
 jwt= JWTManager(app)
 
 #app.config['MONGO_URI']='mongodb://localhost:27017/Hostel_leave'
-client=MongoClient('mongodb://localhost:27017/')
+##client=MongoClient('mongodb://localhost:27017/')
 #mongo= PyMongo(app)
 
+client=MongoClient(host='hostel_leave',port=27017,username='root',password='pass')
 db=client['Hostel']
 collection=db['Leave_apply']
 loginDB=client['user_login']
@@ -54,7 +55,7 @@ def Login():
             email=request.form.get('email')
             password=request.form.get('password')
             user=loginCollection.find_one({'Email':email})
-         
+            print(user)
                 
 
             if user and  pbkdf2_sha256.verify(password,user['password']):
@@ -102,8 +103,8 @@ def APISignup():
     if loginCollection.find_one({"Email": result['Email']}):
         return jsonify({"error": "email address already in use"}), 400
 
-    if collection.insert_one(result):
-       return render_template('signup.html',data={"flag":True})
+    if loginCollection.insert_one(result):
+       return render_template('Signup.html',data={"flag":True})
         #return redirect(url_for('signup',data=True))
 
     return jsonify({"error":"signup failed"})
